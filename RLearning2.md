@@ -16,7 +16,8 @@ The function is filter(), the first argument we pass to is the name of the data 
 df1 <- filter(murders, Relationship_label=="Husband", VicAge > 60, Year==2016)
 It means we create a new data frame called df1, and we filter by relationship label, looking for husbands, and then victim age is older than 60, comma means and, and year is 2016.
 
-pic1
+![pic1]
+https://github.com/rhondaqian/JMM692-post/blob/master/pic1.jpg
 
 We can also replace the comma with &.
 We can use | (or) command, or we can use %in% to show group membership.
