@@ -16,8 +16,7 @@ The function is filter(), the first argument we pass to is the name of the data 
 df1 <- filter(murders, Relationship_label=="Husband", VicAge > 60, Year==2016)
 It means we create a new data frame called df1, and we filter by relationship label, looking for husbands, and then victim age is older than 60, comma means and, and year is 2016.
 
-![pic1]
-https://github.com/rhondaqian/JMM692-post/blob/master/pic1.jpg
+![pic1](https://github.com/rhondaqian/JMM692-post/blob/master/pic1.jpg)
 
 We can also replace the comma with &.
 We can use | (or) command, or we can use %in% to show group membership.
@@ -30,7 +29,8 @@ df1_narrow <- select(df1, State, Agency, Solved_label, Year)
 We can use a colon between variables if we want all the columns between.
 We can also use a - to remove a column.
 
-pic2
+![pic2](https://github.com/rhondaqian/JMM692-post/blob/master/pic2.jpg)
+
 
 arrange()is like sorting, we put the name of the data set in it, followed by the column names to sort by.
 age_df2 <- arrange(murders, VicAge, OffAge)
@@ -41,14 +41,15 @@ murders_ver2 <- mutate(murders,
                        age_difference=OffAge-VicAge)
 We can use case_when() in mutate() to create new values, like if_else. 
 
-pic3
+![pic3](https://github.com/rhondaqian/JMM692-post/blob/master/pic3.jpg)
+
 
 We use rename() to rename columns, use = to replace the names. select() also can be used to rename.
 
 summarize() is like creating a pivot table in excel.
 We can use group_by() to aggregate data by groups.
 
-pic4
+![pic4](https://github.com/rhondaqian/JMM692-post/blob/master/pic4.jpg)
 
 
 pipe %>%
@@ -58,7 +59,7 @@ dc_annual_murders <- arrange(summarize(group_by(filter(murders, State=="District
 We use pipe operator %>% because in dplyr the first argument is always the data frame. So in order to avoid much typing, we can put data frame name right before %>%, similar to “ and then”.
 murders %>% filter(OffAge==2) do the same thing as filter(murders, OffAge==2).
 
-pic5
+![pic5](https://github.com/rhondaqian/JMM692-post/blob/master/pic5.jpg)
 
 There’re some summary functions. mean() for average, median() for median, sd() for standard deviation, range(), min() for minimum, max() for maximum, abs() for absolute value.
 
@@ -66,34 +67,37 @@ There’re some summary functions. mean() for average, median() for median, sd()
 Class 2 teaches to use tidyr to tidy and join data.
 We use DT library to help us show the data.
 
-pic6  pic7
+![pic6](https://github.com/rhondaqian/JMM692-post/blob/master/pic6.jpg) 
+![pic7](https://github.com/rhondaqian/JMM692-post/blob/master/pic7.jpg)
 
 We use spread() in tidyr library to turn tall data into wide data with spread. The argument is like data frame %>% spread (key = data, value= amount). spread() can can only turn one tall column wide at a time.We need to drop the cases_unsolved column in order for this to transpose correctly.
 
 
-
-pic 9
+![pic9](https://github.com/rhondaqian/JMM692-post/blob/master/pic9.jpg)
 
 Joining combines two data sets by adding their columns together. It uses dplyr package. There’s left_join(), right_join(), full_join() (any rows from the second data frame that doesn’t match the target data frame are kept), and inner_join() (any rows that don’t match are dropped completely from both data sets.)
 
 
 Case Study
 
-pic10 pic11
+![pic10](https://github.com/rhondaqian/JMM692-post/blob/master/pic10.jpg) 
+![pic11](https://github.com/rhondaqian/JMM692-post/blob/master/pic11.jpg)
 
 Handling Strings
 
 We need stringr package to manipulate text. Each function starts with str_
 We use str_length() to figure out length of string; str_c() to combine strings; str_sub() to substitute string, str_detect() to detect string in string, str_match() to do string match, str_count() to count string, str_split() to split string, str_to_upper()/str_to_lower()/str_to_title() to convert string to certain case, str_trim() to eliminate trailing white space. 
 
-pic12 pic13
+![pic12](https://github.com/rhondaqian/JMM692-post/blob/master/pic12.jpg) 
+![pic13](https://github.com/rhondaqian/JMM692-post/blob/master/pic13.jpg)
 
 
 Dealing with dates
 If we need to convert characters dates into a date variable, we’ll use lubridate package.
 mdy()stands for month-date-year. And year, day, month for ydm(), hour, minute for hm(), hour minute, second for hms(), year, month, day, hour, minute, second for ymd_hms().
 
-pic14
+![pic14](https://github.com/rhondaqian/JMM692-post/blob/master/pic14.jpg)
+
 
 ggplot2
 This chapter is about applying the grammar of graphics to data visualizations
@@ -105,35 +109,44 @@ ggplot(data=ages) +
 The aesthetics (aes()) is the visual characteristics that represent your data.
 And geom_point() is one type out of dozens of possible geom_functions, like geom_bar() or geom_boxplot().
 expand_limits() is passed to force the x- and y-axis to start at 0.
-pic15
+![pic15](https://github.com/rhondaqian/JMM692-post/blob/master/pic15.jpg)
+
 
 ggplot(data=ages,
   aes(x=actor, fill=Genre)) +
   geom_bar()
 
-pic16
+![pic16](https://github.com/rhondaqian/JMM692-post/blob/master/pic16.jpg)
+
 
 ggplot(ages, aes(x=actor, y=actress_age)) +
   geom_boxplot()
 
-pic17,18
+![pic17](https://github.com/rhondaqian/JMM692-post/blob/master/pic17.jpg)
+![pic18](https://github.com/rhondaqian/JMM692-post/blob/master/pic18.jpg)
 box plot/ violin plot
 
 
 kernel density plot
 geom_density()
 
-pic19
+![pic19](https://github.com/rhondaqian/JMM692-post/blob/master/pic19.jpg)
 
-line plot pic20
 
-scatterplot pic21
+line plot 
+![pic20](https://github.com/rhondaqian/JMM692-post/blob/master/pic20.jpg)
 
-facets pic22
+scatterplot ![pic21](https://github.com/rhondaqian/JMM692-post/blob/master/pic21.jpg)
+
+
+facets ![pic22](https://github.com/rhondaqian/JMM692-post/blob/master/pic22.jpg)
+
 
 customizing charts
 We use forcats library to transform data. And pass the function fct_reorder(factor, variable, fun=mean, …, desc=FALSE)
-pic23
+![pic23](https://github.com/rhondaqian/JMM692-post/blob/master/pic23.jpg)
+
 
 We use geom_segment() to create lollipop plot.
-pic24
+![pic24](https://github.com/rhondaqian/JMM692-post/blob/master/pic24.jpg)
+
