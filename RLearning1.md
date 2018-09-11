@@ -13,11 +13,11 @@ url <- "https://data.ct.gov/api/views/iyru-82zq/rows.csv?accessType=DOWNLOAD"
 data <- read_csv(url)
 And we can use str(data) to see the structure of the data.
 
-pic1
+![pic1](https://github.com/rhondaqian/JMM692-post/blob/master/scs1.jpg)
 
 To import a csv, we can both directly link it from the website, or download it to local. The address or file name need to be put in quotation marks, and I got an error first because I used an unexpected token””””.
 
-pic2
+![pic2](https://github.com/rhondaqian/JMM692-post/blob/master/scs2.jpg)
 
 local_file <- "Admissions_to_DMHAS_Addiction_Treatment_by_Town__Year__and_Month.csv"
 data_local <- read_csv(local_file)
@@ -32,16 +32,16 @@ library(readxl)
 drug_death <- read_excel("DrugDeaths.xlsx", skip=2)
 The function from readxl is similar to that in readr. We pass skip= to skip column names.
 
-pic2
+![pic3](https://github.com/rhondaqian/JMM692-post/blob/master/scs3.jpg)
 
 colnames(drug_death) is a function to list the column names of the dataframe.
-pic4
+![pic4](https://github.com/rhondaqian/JMM692-post/blob/master/scs4.jpg)
 
 We pass “drug_death$`42005`” to clean up column names.
 And to change the column names, we pass argument like 
 colnames(drug_death)[colnames(drug_death)=="X42005"] <- “Year”
 
-pic5
+![pic5](https://github.com/rhondaqian/JMM692-post/blob/master/scs5.jpg)
 
 All we can use library(dplyr), and use the function rename() from dplyr.
 drug_death <- rename(drug_death, Place=X29)
@@ -49,7 +49,7 @@ To get rid of NAs, we can pass subset() and filter from dplyr.
 drug_death <- subset(drug_death, !is.na(Year))
 drug_death <- filter(drug_death, !is.na(Year))
 
-pic6
+![pic6](https://github.com/rhondaqian/JMM692-post/blob/master/scs6.jpg)
 
 
 When dealing with delimited text, we may encounter pipe-delimited files or tab-delimited files.
@@ -57,13 +57,13 @@ To read in delimited pipe files, we use read_delim() function from readr libr
 
 df1 <- read_delim("data/Employee_Payroll_Pipe.txt", delim=“|”)
 
-pic7
+![pic7](https://github.com/rhondaqian/JMM692-post/blob/master/scs7.jpg)
 
 We pass read_tsv()to import tab delimited pipe files.
 
 We use the read_fwf() function from the readr package for fixed width column. We need to pass the width of each variables and the names of the columns.
 
-pic8
+![pic8](https://github.com/rhondaqian/JMM692-post/blob/master/scs8.jpg)
 
 Fo JSON data, we first need to find a json file on the website.
 Then we use the jsonlite library.
@@ -73,7 +73,8 @@ install.packages("jsonlite")
 library(jsonlite)
 json_url <-"http://sbgi.net/resources/assets/sbgi/MetaverseStationData.json"
 stations <- fromJSON(json_url)
-pic9
+![pic9](https://github.com/rhondaqian/JMM692-post/blob/master/scs9.jpg)
+
 
 SPSS stands for Statistical Package for the Social Sciences and is owned by IBM. SPSS file is layered. The data have a label and value. And it’s too big for Excel to handle.
 If we want to take the SPSS file, we need to save it as a data frame in R. 
@@ -83,10 +84,14 @@ library(foreign)
 data_labels <- read.spss("data/SHR76_16.sav", to.data.frame=TRUE)
 To bing it in without the labels, we use a variable
 data_only <- read.spss("data/SHR76_16.sav", to.data.frame=TRUE, use.value.labels=F)
-pic10
+
+![pic10](https://github.com/rhondaqian/JMM692-post/blob/master/scs10.jpg)
+
 Then we need to bring the two data frames together, while perverse both labels and values.
 We use dplyr packages. And create a new data frame each for new labels and new value.
-pic12
+![pic12](https://github.com/rhondaqian/JMM692-post/blob/master/scs12.jpg)
+
 Then we pass cbind() function which means column binding, but it only works if the number of rows are the same.
-pic11.
+![pic11](https://github.com/rhondaqian/JMM692-post/blob/master/scs11.jpg)
+
 
