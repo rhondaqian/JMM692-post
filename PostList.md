@@ -6,5 +6,4 @@
 ### R Learning Chapter2
 [link to R Learning 2](https://github.com/rhondaqian/JMM692-post/blob/master/RLearning1.md)
 
-### R Learning Chapter3/4
-[link to R Learning 3](https://github.com/rhondaqian/JMM692-post/blob/master/RLearning2.md)
+
